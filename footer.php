@@ -65,6 +65,19 @@
         </div>
 
     </div>
+    
+    <div class="footer-bottom">
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="Twitter">t</a>
+            <a href="#" aria-label="YouTube">y</a>
+        </div>
+        <div class="copyright-info">
+            <p>@2023 Estatein. All Rights Reserved.</p>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </div>
 </footer>
 
 <?php wp_footer(); ?>
