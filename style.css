@@ -296,6 +296,11 @@ ul { list-style: none; padding: 0; margin: 0; }
   }
 }
 
+/* Visibility Helpers */
+.show-on-mobile, .mobile-count{
+  display: none; /* Hidden by default on desktop */
+}
+
 /* --- Hero Section --- */
 .hero-section {
   padding: 0 0 0 40px; /* No bottom padding */
@@ -471,7 +476,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 /* --- Featured Properties Section --- */
 .properties-section {
-  padding: 80px 40px;
+  padding: 40px 40px;
 }
 
 /* Section Header */
@@ -593,6 +598,13 @@ ul { list-style: none; padding: 0; margin: 0; }
   border-top: 1px solid var(--box-grey);
   padding-top: 20px;
 }
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .nav-arrows {
   display: flex;
   gap: 10px;
@@ -708,14 +720,78 @@ ul { list-style: none; padding: 0; margin: 0; }
       padding: 0 20px 60px 20px; 
   }
 
+  .properties-section {
+    padding: 10px 20px;
+  }
+
   .section-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
+    margin-bottom: 40px;
   }
 
-  .properties-grid { grid-template-columns: 1fr; }
-  .card-footer { flex-direction: column; gap: 20px; align-items: stretch; }
-  .card-footer .btn-primary { text-align: center; }
+  /* Hide top button, show bottom button */
+  .hide-on-mobile { 
+      display: none; 
+  }
+  .show-on-mobile { 
+      display: inline-flex; 
+      width: max-content;
+      white-space: nowrap;
+  }
 
+  /* Swap the page count locations for mobile */
+  .desktop-count { 
+    display: none; 
+  }
+
+  .mobile-count { 
+      display: inline-block; 
+  }
+
+  /* Only show the first property card */
+  .properties-grid { 
+      grid-template-columns: 1fr; 
+  }
+  .property-card:nth-child(n+2) {
+      display: none; /* Hides the 2nd and 3rd cards on mobile */
+  }
+
+  /* Card Footer Buttons */
+  .card-footer { 
+      flex-direction: column; 
+      gap: 20px; 
+      align-items: stretch; 
+  }
+  .card-footer .btn-primary { 
+      text-align: center; 
+  }
+
+  /* Bottom Pagination Bar Mobile Layout */
+  .properties-pagination {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--box-grey);
+      padding-top: 20px;
+      gap: 10px;
+  }
+
+  .pagination-controls {
+      width: auto;
+      justify-content: flex-end;
+      border-top: none;
+      padding-top: 0;
+  }
+
+  .properties-pagination .btn-outline {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .arrow-btn {
+      width: 36px;
+      height: 36px;
+  }
 }

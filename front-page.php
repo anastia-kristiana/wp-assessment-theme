@@ -101,7 +101,7 @@
                     <h2>Featured Properties</h2>
                     <p>Explore our handpicked selection of featured properties. Each listing offers a glimpse into exceptional homes and investments available through Estatein. Click "View Details" for more information.</p>
                 </div>
-                <a href="#" class="btn-outline">View All Properties</a>
+                <a href="#" class="btn-outline hide-on-mobile">View All Properties</a>
             </div>
 
             <!-- Properties Grid -->
@@ -132,7 +132,7 @@
                             <h3><?php the_title(); ?></h3>
                             <div class="card-desc">
                                 <!-- Trims the description and adds Read More -->
-                                <?php echo wp_trim_words( get_the_content(), 15, '... <a href="#" class="read-more">Read More</a>' ); ?>
+                                <?php echo wp_trim_words( get_the_content(), 8, '... <a href="#" class="read-more">Read More</a>' ); ?>
                             </div>
                             
                             <div class="card-badges">
@@ -159,9 +159,17 @@
 
             <!-- Pagination Bar -->
             <div class="properties-pagination">
-                <span class="page-count">01 of 60</span>
-                <div class="nav-arrows">
+                <!-- 1. Desktop text (Left side) -->
+                <span class="page-count desktop-count">01 of 60</span>
+                
+                <!-- 2. Mobile button (Left side) -->
+                <a href="#" class="btn-outline show-on-mobile">View All Properties</a>
+                
+                <!-- 3. Arrows & Mobile text (Right side) -->
+                <div class="pagination-controls">
                     <button class="arrow-btn">←</button>
+                    <!-- Hidden on desktop, shows up between arrows on mobile -->
+                    <span class="page-count mobile-count">01 of 60</span>
                     <button class="arrow-btn">→</button>
                 </div>
             </div>
