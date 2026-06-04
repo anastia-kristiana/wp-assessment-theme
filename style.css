@@ -162,12 +162,65 @@ ul { list-style: none; padding: 0; margin: 0; }
     color: var(--text-white);
 }
 
-/* Basic Responsive */
-@media (max-width: 992px) {
-    .header-inner, .footer-inner { flex-direction: column; gap: 40px; }
-    .nav-list { flex-direction: column; text-align: center; }
-    .footer-links { flex-wrap: wrap; gap: 40px; }
+/* --- Header Additional Structures--- */
+.top-bar-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
+
+.close-top-bar {
+  position: absolute;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--text-white);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; /* Hidden on desktop */
+}
+
+.desktop-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.mobile-menu-toggle {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Recreates the specific uneven hamburger lines from Figma */
+.mobile-menu-toggle span {
+  display: block;
+  height: 2px;
+  background-color: var(--text-white);
+  border-radius: 2px;
+}
+.mobile-menu-toggle span:nth-child(1),
+.mobile-menu-toggle span:nth-child(2) { width: 30px; }
+.mobile-menu-toggle span:nth-child(3) { width: 20px; align-self: flex-end; }
+
+/* --- Mobile Responsive: Header --- */
+@media (max-width: 992px) {
+  /* Top Bar Mobile */
+  .top-bar { padding: 16px 20px; text-align: left; }
+  .top-bar p { padding-right: 40px; line-height: 1.5; margin: 0; }
+  .close-top-bar { display: flex; align-items: center; justify-content: center; }
+
+  /* Header Mobile */
+  .site-header { padding: 20px; }
+  .desktop-nav-group { display: none; } /* Hide menu and button */
+  .mobile-menu-toggle { display: flex; } /* Show hamburger */
 
 /* --- Hero Section --- */
 .hero-section {
