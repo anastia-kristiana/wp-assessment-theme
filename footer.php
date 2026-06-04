@@ -5,12 +5,10 @@
         <div class="footer-brand">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Estatein Logo">
-                <span>Estatein</span>
             </a>
             
             <form class="newsletter-form" action="#" method="POST">
                 <div class="input-wrapper">
-                    <!-- Assuming you have an SVG icon for the email envelope -->
                     <span class="icon-email">✉️</span> 
                     <input type="email" placeholder="Enter Your Email" required>
                     <button type="submit" class="btn-send">🚀</button>
