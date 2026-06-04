@@ -63,6 +63,35 @@
         </div>
     </section>
 
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <?php 
+                // Loop through 4 feature boxes
+                for($i=1; $i<=4; $i++): 
+                    $text = get_field('feature_'.$i.'_text');
+                    $icon = get_field('feature_'.$i.'_icon');
+                    
+                    if($text && $icon):
+                ?>
+                    <div class="feature-box">
+                        <div class="box-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </div>
+                        
+                        <div class="icon-wrapper">
+                            <img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($text); ?>">
+                        </div>
+                        <h4><?php echo esc_html($text); ?></h4>
+                    </div>
+                <?php 
+                    endif;
+                endfor; 
+                ?>
+            </div>
+        </div>
+    </section>
+
     <?php endwhile; ?>
 </main>
 
