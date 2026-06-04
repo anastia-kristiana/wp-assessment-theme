@@ -9,9 +9,11 @@
             
             <form class="newsletter-form" action="#" method="POST">
                 <div class="input-wrapper">
-                    <span class="icon-email">✉️</span> 
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/mail-icon.png" alt="Email">
                     <input type="email" placeholder="Enter Your Email" required>
-                    <button type="submit" class="btn-send">🚀</button>
+                    <button type="submit" class="btn-send">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/send-icon.png" alt="Send">
+                    </button>
                 </div>
             </form>
         </div>
