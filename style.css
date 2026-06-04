@@ -272,25 +272,64 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 /* Responsive adjustments */
 @media (max-width: 992px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-}
+  .hero-section {
+    padding: 40px 20px 0 20px;
+  }
 
+  .hero-inner {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+
+  /* Image adjustments */
   .hero-visual {
-      min-height: 400px;
-      margin-top: 40px;
+    width: 100%;
+    min-height: 350px;
+    border-radius: 12px;
   }
+
+  /* Badge moved to bottom-left */
   .circular-badge {
-      left: 50%;
-      top: -87px;
-      transform: translateX(-50%);
+    width: 130px; 
+    height: 130px;
+    top: auto; 
+    bottom: 0;
+    left: 20px; 
+    transform: translateY(50%); /* Pulls exactly half the badge below the image */
   }
-}
-@media (max-width: 768px) {
-  .hero-stats {
-      grid-template-columns: 1fr; /* Stack stats on mobile */
-  }
+
+  /* Text adjustments */
   .hero-content h1 {
-      font-size: 40px;
+    font-size: 38px;
+    margin-top: 30px;
+  }
+
+  .hero-desc {
+    max-width: 100%;
+  }
+
+  /* Stacked Full-Width Buttons */
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .btn-outline, .btn-primary {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  /* 2x1 Stats Grid */
+  .hero-stats {
+    grid-template-columns: 1fr 1fr; 
+  }
+
+  /* Targets the 3rd stat box */
+  .stat-box:nth-child(3) {
+    grid-column: span 2; 
+    text-align: center; 
   }
 }
