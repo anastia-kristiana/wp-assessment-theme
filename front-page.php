@@ -92,6 +92,83 @@
         </div>
     </section>
 
+    <section class="properties-section">
+        <div class="container">
+            
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="header-text">
+                    <h2>Featured Properties</h2>
+                    <p>Explore our handpicked selection of featured properties. Each listing offers a glimpse into exceptional homes and investments available through Estatein. Click "View Details" for more information.</p>
+                </div>
+                <a href="#" class="btn-outline">View All Properties</a>
+            </div>
+
+            <!-- Properties Grid -->
+            <div class="properties-grid">
+                <?php
+                // Query the Custom Post Type
+                $args = array(
+                    'post_type' => 'property',
+                    'posts_per_page' => 3
+                );
+                $property_query = new WP_Query($args);
+
+                if ( $property_query->have_posts() ) :
+                    while ( $property_query->have_posts() ) : $property_query->the_post();
+                        
+                        // Fetch ACF data
+                        $beds = get_field('bedrooms');
+                        $baths = get_field('bathrooms');
+                        $type = get_field('property_type');
+                        $price = get_field('price');
+                ?>
+                    <div class="property-card">
+                        <div class="card-image">
+                            <!-- Fetches the native WP Featured Image -->
+                            <?php the_post_thumbnail('large'); ?>
+                        </div>
+                        <div class="card-content">
+                            <h3><?php the_title(); ?></h3>
+                            <div class="card-desc">
+                                <!-- Trims the description and adds Read More -->
+                                <?php echo wp_trim_words( get_the_content(), 15, '... <a href="#" class="read-more">Read More</a>' ); ?>
+                            </div>
+                            
+                            <div class="card-badges">
+                                <?php if($beds): ?><span><img src="<?php echo get_template_directory_uri(); ?>/images/property-icon3.png" alt="Bedrooms"> <?php echo esc_html($beds); ?>-Bedroom</span><?php endif; ?>
+                                <?php if($baths): ?><span><img src="<?php echo get_template_directory_uri(); ?>/images/property-icon2.png" alt="Bedrooms"> <?php echo esc_html($baths); ?>-Bathroom</span><?php endif; ?>
+                                <?php if($type): ?><span><img src="<?php echo get_template_directory_uri(); ?>/images/property-icon1.png" alt="Bedrooms"> <?php echo esc_html($type); ?></span><?php endif; ?>
+                            </div>
+                            
+                            <div class="card-footer">
+                                <div class="price-block">
+                                    <span class="price-label">Price</span>
+                                    <span class="price-amount">$<?php echo esc_html($price); ?></span>
+                                </div>
+                                <a href="<?php the_permalink(); ?>" class="btn-primary">View Property Details</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+                    endwhile;
+                    wp_reset_postdata(); // Resets WP loop after custom query
+                endif;
+                ?>
+            </div>
+
+            <!-- Pagination Bar -->
+            <div class="properties-pagination">
+                <span class="page-count">01 of 60</span>
+                <div class="nav-arrows">
+                    <button class="arrow-btn">←</button>
+                    <button class="arrow-btn">→</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <?php endwhile; ?>
 </main>
 
