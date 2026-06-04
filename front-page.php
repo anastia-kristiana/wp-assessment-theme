@@ -53,10 +53,7 @@
                 </div>
             </div>
             
-            <div class="hero-visual">
-                <?php if($hero_image): ?>
-                    <img src="<?php echo esc_url($hero_image['url']); ?>" alt="<?php echo esc_attr($hero_image['alt']); ?>" class="main-hero-img">
-                <?php endif; ?>
+            <div class="hero-visual" <?php if($hero_image): ?>style="background-image: url('<?php echo esc_url($hero_image['url']); ?>');"<?php endif; ?>>
                 
                 <div class="circular-badge">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/discover_your_dream_property.png" alt="Discover Property">
