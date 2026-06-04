@@ -1,0 +1,23 @@
+name: Deploy Theme to Server
+
+on:
+  push:
+    branches:
+      - main # This triggers the deploy every time you push to the 'main' branch
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v3
+
+    - name: Sync files via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        # IMPORTANT: Change this to your exact server path
+        server-dir: /public_html/wp-content/themes/figma-assessment-theme/
