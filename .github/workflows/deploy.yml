@@ -20,4 +20,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         # IMPORTANT: Change this to your exact server path
-        server-dir: /public_html/wp-content/themes/figma-assessment-theme/
+        server-dir: /home/u643118030/domains/indigo-armadillo-210240.hostingersite.com/public_html/wp-content/themes/figma-assessment-theme/
