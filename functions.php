@@ -20,3 +20,17 @@ function figma_theme_scripts() {
     wp_enqueue_style( 'figma-theme-style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'figma_theme_scripts' );
+
+function create_property_cpt() {
+    register_post_type('property', array(
+        'labels' => array(
+            'name' => 'Properties',
+            'singular_name' => 'Property'
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'menu_icon' => 'dashicons-admin-home',
+    ));
+}
+add_action('init', 'create_property_cpt');
